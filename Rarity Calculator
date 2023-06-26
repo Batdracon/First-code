@@ -1,0 +1,39 @@
+def calculate_recipe_rarity():
+    rarity_weights = {
+        'common': 1,
+        'uncommon': 5,
+        'rare': 20,
+        'very rare': 50,
+        'legendary': 100
+    }
+
+    material_counts = {}
+
+    for rarity in rarity_weights:
+        count = int(input(f"Enter the number of {rarity} materials: "))
+        material_counts[rarity] = count
+
+    total_weight = sum([material_counts[rarity] * rarity_weights[rarity] for rarity in material_counts])
+    total_value = total_weight / sum(material_counts.values())
+    total_sum = total_value * 2
+
+    base_values = {
+        'uncommon': 10,
+        'rare': 25,
+        'very rare': 45,
+        'legendary': 85
+    }
+
+    if total_sum < base_values['uncommon']:
+        return 'Common'
+    elif total_sum < base_values['rare']:
+        return 'Uncommon'
+    elif total_sum < base_values['very rare']:
+        return 'Rare'
+    elif total_sum < base_values['legendary']:
+        return 'Very Rare'
+    else:
+        return 'Legendary'
+
+recipe_rarity = calculate_recipe_rarity()
+print(f"The rarity of the recipe is: {recipe_rarity}")
