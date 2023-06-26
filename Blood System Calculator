@@ -1,0 +1,30 @@
+def calculate_blood_amount(starting_hp):
+    # Calculate 10 HP blood
+    ten_hp = min(starting_hp, 10)
+    ten_hp_blood = ten_hp * 500
+
+    # Calculate main HP blood
+    main_hp = max(starting_hp - 10, 0)
+    main_hp_blood = main_hp * 10
+
+    # Calculate total blood
+    total_blood = ten_hp_blood + main_hp_blood
+
+    return total_blood
+
+
+# Main program loop
+while True:
+    # Input starting HP
+    starting_hp = int(input("Enter the starting HP (0 to exit): "))
+
+    # Check if the user wants to exit
+    if starting_hp == 0:
+        break
+
+    # Calculate and display the blood amount
+    blood_amount = calculate_blood_amount(starting_hp)
+    print("Total Blood: ", blood_amount)
+    print()
+
+print("Program exited.")
