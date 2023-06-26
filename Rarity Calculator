@@ -35,5 +35,10 @@ def calculate_recipe_rarity():
     else:
         return 'Legendary'
 
-recipe_rarity = calculate_recipe_rarity()
-print(f"The rarity of the recipe is: {recipe_rarity}")
+while True:
+    recipe_rarity = calculate_recipe_rarity()
+    print(f"The rarity of the recipe is: {recipe_rarity}")
+
+    choice = input("Do you want to calculate another recipe rarity? (y/n): ")
+    if choice.lower() != 'y':
+        break
